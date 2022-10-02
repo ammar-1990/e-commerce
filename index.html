@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+    <title>E-commerce</title>
+  </head>
+  <body>
+    <!-- start header -->
+    <header>
+      <div class="container">
+        <h1 class="logo">E- <span>Commerce</span></h1>
+        <div class="caret">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="amount-caret ">0</span>
+        </div>
+        
+      </div>
+    </header>
+
+    <!-- start main -->
+
+    
+    <main>
+      <div class="title">
+        <ul class="animated">
+          <li>here you can find all what you want</li>
+          <li>large collections</li>
+          <li>good prices</li>
+          <li class="anime">and more</li>
+        </ul>
+
+        <button class="btn" id="start">lets get started</button>
+      </div>
+      <form id="first-form" class="hide">
+        <h1 class="option">make your <span> options</span></h1>
+        <div class="search">
+          <label for="search">What are you looking for</label>
+          <input  class="srbtn " id="search" type="text" />
+        </div>
+
+       
+        <button class="btn" type="submit" id="sub">search</button>
+      </form>
+    </main>
+    <div class="my-cart">
+      <div> <p>my cart</p>
+      <div class="search-type">
+        <input type="text" placeholder="search an added product" >
+        <div class="search-boxes">
+            <div class="by-name">
+                <input type="radio" value="name" checked="true" id="by-name" name="search"><label for="by-name">By Name</label></div>
+            <div class="by-id">
+                <input type="radio" value="price"  id="by-price" name="search"><label for="by-price" >By Price</label></div>
+            </div>
+        </div></div>
+     
+        <div class="products">
+
+  
+        </div>
+        <div class="remove-all">
+          <button >Remove All</button>
+          <span class="the-total"></span>
+        </div>
+      </div>
+       
+          
+        
+      
+
+      
+    </div>
+
+    <div class="results">
+      <p class="main-title">The results</p>
+      <div class="results-wraper">
+    
+      </div>
+    </div>
+    <div class="more-info-layer disable">
+   
+    
+      
+      <div class="more-info">
+       
+        <div class="imgs face one">
+          <div class="main-img">
+            <img class="big-img"
+              src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRNKqYF2i3dGbk-d8FaqmlnIs0LTVuPXPXNGrxPWdFn4FQsXSE&usqp=CA"
+              alt=""
+            />
+          </div>
+
+          <ul class="imgs-ul">
+            <li >
+              <img class="small-imgs"
+                src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRI1ZnZ8lxG6-Tn2aVanxy7TykfKTO8iyRGhwfo4XS5t2gwnyKa&usqp=CAE"
+                alt=""
+              />
+            </li>
+            <li >
+              <img class="small-imgs"
+                src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRrSMHrVHmlc-Max7D5IUlIKDvDdCm2ty36x-IcWUqxBduvqRmf&usqp=CAE"
+                alt=""
+              />
+            </li>
+            <li >
+              <img class="small-imgs"
+                src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRBSYbjw0hkKpRR8Nm-RA6ZOtpK86_wZUJKNXNZGb8CaNKRKyI&usqp=CAE"
+                alt=""
+              />
+            </li >
+            <li>
+              <img class="small-imgs"
+                src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRNKqYF2i3dGbk-d8FaqmlnIs0LTVuPXPXNGrxPWdFn4FQsXSE&usqp=CAE"
+                alt=""
+              />
+            </li>
+          </ul>
+
+          <span class="close">X</span>
+        </div>
+        <div class="discription face two">
+          <p class="discription-title">
+            <span>discription</span>Hit refresh on your weekend wardrobe with
+            this jacket. Featuring a cream heavy twill material with a button
+            through design and a cropped length
+          </p>
+          <div class="attributes">
+            <div class="attribute">
+              <span class="att-key">Size:</span><span class="att-value">8</span>
+            </div>
+            <div class="attribute">
+              <span class="att-key">Fastener Type:</span
+              ><span class="att-value">Button</span>
+            </div>
+            <div class="attribute">
+              <span class="att-key">Style:</span
+              ><span class="att-value">Casual</span>
+            </div>
+          </div>
+          <span class="close">X</span>
+        </div>
+      </div>
+      <button class="flip ">Flip</button>
+    </div>
+<div class="load-layer disable"><div class="loading">
+  <span class="word">loading</span>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+  
+</ul>
+</div></div>
+    <script src="main.js"></script>
+  </body>
+</html>
+
