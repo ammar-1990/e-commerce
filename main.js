@@ -51,11 +51,11 @@ searchBtn.addEventListener("click", (e) => {
       load.classList.add('appear')
   
   // const options = {
-  //   method: "GET",
+  //   method: 'GET',
   //   headers: {
-  //     "X-RapidAPI-Key": "b1d8064e85msh358693e78f0c3fep15184cjsn7b2984d11c67",
-  //     "X-RapidAPI-Host": "amazon23.p.rapidapi.com",
-  //   },
+  //     'X-RapidAPI-Key': 'b1d8064e85msh358693e78f0c3fep15184cjsn7b2984d11c67',
+  //     'X-RapidAPI-Host': 'amazon23.p.rapidapi.com'
+  //   }
   // };
   // let myUrl = `https://amazon23.p.rapidapi.com/product-search?query=${searchInput.value}`;
 let myUrl="./products.json"
@@ -277,8 +277,89 @@ showCart()
 
 document.addEventListener('click',(e)=>{
 if(e.target.classList.contains('details'))
+{
 moreInfo.classList.remove('disable')
 moreInfo.classList.add('appear')
+let myId = e.target.dataset.id
+// const options ={
+//   method: 'GET',
+// 	headers: {
+// 		'X-RapidAPI-Key': 'b1d8064e85msh358693e78f0c3fep15184cjsn7b2984d11c67',
+// 		'X-RapidAPI-Host': 'amazon23.p.rapidapi.com'
+// 	}
+// }
+console.log(myId)
+// fetch(`https://amazon23.p.rapidapi.com/product-details?asin=${myId}`, options)
+fetch("./more.json")
+	.then(response => response.json())
+	.then(response => {
+    moreInfo.innerHTML= `
+    <div class="more-info">
+       
+        <div class="imgs face one">
+          <div class="main-img">
+            <img class="big-img"
+              src=${response.result[0].images[0]}
+              alt=""
+            />
+          </div>
+
+          <ul class="imgs-ul">
+            <li >
+              <img class="small-imgs"
+                src=${response.result[0].images[0]}
+                alt=""
+              />
+            </li>
+            <li >
+              <img class="small-imgs"
+                src=${response.result[0].images[1]}
+                alt=""
+              />
+            </li>
+            <li >
+              <img class="small-imgs"
+                src=${response.result[0].images[2] }
+                alt=""
+              />
+            </li >
+            <li>
+              <img class="small-imgs"
+                src=${response.result[0].images[3] }
+                alt=" no photo"
+              />
+            </li>
+          </ul>
+
+          <span class="close">X</span>
+        </div>
+        <div class="discription face two">
+          <p class="discription-title">
+            <span>discription</span>${response.result[0].description}
+          </p>
+          <div class="attributes">
+            <div class="attribute">
+              <span class="att-key">Size:</span><span class="att-value">8</span>
+            </div>
+            <div class="attribute">
+              <span class="att-key">Fastener Type:</span
+              ><span class="att-value">Button</span>
+            </div>
+            <div class="attribute">
+              <span class="att-key">Style:</span
+              ><span class="att-value">Casual</span>
+            </div>
+          </div>
+          <span class="close">X</span>
+        </div>
+      </div>
+      <button class="flip ">Flip</button>
+    `
+  }
+    )
+	.catch(err => console.error(err));
+ 
+}
 })
 
 
