@@ -50,16 +50,16 @@ searchBtn.addEventListener("click", (e) => {
   load.classList.remove('disappear')
       load.classList.add('appear')
   
-  // const options = {
-  //   method: 'GET',
-  //   headers: {
-  //     'X-RapidAPI-Key': 'b1d8064e85msh358693e78f0c3fep15184cjsn7b2984d11c67',
-  //     'X-RapidAPI-Host': 'amazon23.p.rapidapi.com'
-  //   }
-  // };
-  // let myUrl = `https://amazon23.p.rapidapi.com/product-search?query=${searchInput.value}`;
-let myUrl="./products.json"
-  getData(myUrl)
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': 'b1d8064e85msh358693e78f0c3fep15184cjsn7b2984d11c67',
+      'X-RapidAPI-Host': 'amazon23.p.rapidapi.com'
+    }
+  };
+  let myUrl = `https://amazon23.p.rapidapi.com/product-search?query=${searchInput.value}`;
+// let myUrl="./products.json"
+  getData(myUrl,options)
     .then((myData) => {
       showData(myData);
      
@@ -281,16 +281,16 @@ if(e.target.classList.contains('details'))
 moreInfo.classList.remove('disable')
 moreInfo.classList.add('appear')
 let myId = e.target.dataset.id
-// const options ={
-//   method: 'GET',
-// 	headers: {
-// 		'X-RapidAPI-Key': 'b1d8064e85msh358693e78f0c3fep15184cjsn7b2984d11c67',
-// 		'X-RapidAPI-Host': 'amazon23.p.rapidapi.com'
-// 	}
-// }
+const options ={
+  method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'b1d8064e85msh358693e78f0c3fep15184cjsn7b2984d11c67',
+		'X-RapidAPI-Host': 'amazon23.p.rapidapi.com'
+	}
+}
 console.log(myId)
-// fetch(`https://amazon23.p.rapidapi.com/product-details?asin=${myId}`, options)
-fetch("./more.json")
+// fetch("./more.json")
+fetch(`https://amazon23.p.rapidapi.com/product-details?asin=${myId}`, options)
 	.then(response => response.json())
 	.then(response => {
     moreInfo.innerHTML= `
@@ -334,21 +334,17 @@ fetch("./more.json")
           <span class="close">X</span>
         </div>
         <div class="discription face two">
+        <span style="color: var(--secondary-color); margin-bottom: 1em;">discription</span>
           <p class="discription-title">
-            <span>discription</span>${response.result[0].description}
+            ${response.result[0].description}
           </p>
           <div class="attributes">
-            <div class="attribute">
-              <span class="att-key">Size:</span><span class="att-value">8</span>
-            </div>
-            <div class="attribute">
-              <span class="att-key">Fastener Type:</span
-              ><span class="att-value">Button</span>
-            </div>
-            <div class="attribute">
-              <span class="att-key">Style:</span
-              ><span class="att-value">Casual</span>
-            </div>
+            
+            <p class="bullet">${response.result[0].feature_bullets[0] || ''} </p>
+            <p class="bullet">${response.result[0].feature_bullets[1] || ''}</p>
+            <p class="bullet">${response.result[0].feature_bullets[2] || ''}</p>
+            <p class="bullet">${response.result[0].feature_bullets[3] || ''}</p>
+        
           </div>
           <span class="close">X</span>
         </div>
@@ -615,7 +611,7 @@ function getTotal (){
    result= cartArr.reduce((sum,ele)=>{
 let result = sum + ele.totalPrice
 
-    return result
+    return +result.toFixed(2)
   
     }
     
