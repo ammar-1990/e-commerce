@@ -7,9 +7,11 @@ I,ve used also localstorage API in order to save the changes
 
 project overview : 
 
-we can search a lage number of different products .
+we can search a large number of different products .
 
 the shown data are consumed APIs which are illustrated in diffirent cards .
+
+each card has a see more botton which illustrate additional informations about the product and shows many images of it .
 
 at the top right of the screen we see a cart icon which opens a sidebar as a cart .
 
